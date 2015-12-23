@@ -1,0 +1,43 @@
+#container {
+  margin: 48px auto;
+  width: 960px;
+}
+
+#container > section {
+  clear: both;
+}
+
+#container > header {
+  margin-bottom: 46px;
+}
+
+#container > header > h1 {
+  float: left;
+  margin: 0;
+}
+
+.navigation-links {
+  float: right;
+}
+
+.navigation-links li {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+
+/* Custom BrandNavBar header Font specs */
+
+.navbar-default .navbar-brand {
+	color: #CE3C3C;
+	font-size: 2em;	
+}
+
+
+.jumbotron {
+    padding: 50px;
+}
+
+/* MISC */
+
+.clearfix:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} html[xmlns].clearfix{display:block;} * html .clearfix{height:1%;}
