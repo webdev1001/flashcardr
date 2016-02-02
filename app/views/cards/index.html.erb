@@ -1,0 +1,23 @@
+<h1>Все карточки:</h1>
+<br> 
+<section>
+	<table class="table">
+		<tr>
+			<td><b>№</b></td>
+			<td><b>Оригинал</b></td>
+			<td><b>Перевод</b></td>
+			<td><b>Дата перевода</b></td>
+		</tr>
+
+		<% @cards.each do |n| %>
+			<tr>
+				<td><%= n.id %></td>
+				<td><%= n.original_text %></td>
+				<td><%= n.translated_text %></td>
+				<td><%= n.review_date.strftime("%d/%m/%Y") %></td>
+			</tr>
+		<% end %>
+	</table>
+</section>
+
+
