@@ -6,7 +6,8 @@
 			<td><b>№</b></td>
 			<td><b>Оригинал</b></td>
 			<td><b>Перевод</b></td>
-			<td><b>Дата перевода</b></td>
+			<td><b>Дата пересмотра</b></td>
+			<td><b>Изменить</b></td>
 		</tr>
 
 		<% @cards.each do |n| %>
@@ -14,10 +15,12 @@
 				<td><%= n.id %></td>
 				<td><%= n.original_text %></td>
 				<td><%= n.translated_text %></td>
-				<td><%= n.review_date.strftime("%d/%m/%Y") %></td>
+				<td><%= n.review_date.strftime("%d/%m/%Y") %></td>				
+				<td><%= link_to "Редактировать", edit_card_path(n) %> / 
+						<%= link_to "Удалить", card_path(n),
+								method: :delete,
+								data: { confirm: "Вы уверены?" } %></td>
 			</tr>
 		<% end %>
 	</table>
 </section>
-
-

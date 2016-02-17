@@ -1,0 +1,7 @@
+<h1>
+	Карточка №<%= @card.id %>
+</h1>
+<br>
+<div class="row">
+  <%= render partial: 'card_show_inside', layout: 'card_form_label', locals: { title: 'Просмотр карточки' } %>
+</div>
