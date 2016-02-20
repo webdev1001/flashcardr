@@ -1,18 +1,17 @@
-<% if defined?(@card.translated_text) %>
+<% if @card %>
 
-	<section>
-		<table class="table">
-			<tr>
-				<td><b>Текст для перевода</b></td>
-				<td><b>Дата пересмотра</b></td>
-			</tr>
-
-			<tr>
-				<td><%= @card.translated_text %></td>
-				<td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
-			</tr>
-		</table>
-	</section>
+  <section>
+    <table class="table">
+      <tr>
+        <td><b>Текст для перевода</b></td>
+        <td><b>Дата пересмотра</b></td>
+      </tr>
+      <tr>
+        <td><%= @card.translated_text %></td>
+        <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+      </tr>
+    </table>
+  </section>
 
 	<br>
 

@@ -6,14 +6,12 @@ class Card < ActiveRecord::Base
   # scope is using PostgreSQL RANDOM() function for choosing Card.
   # For other DB use ActiveRecord - offset(rand(...))
   # or specific function for that DB (i.e. RAND() for MySQL)
-  scope :card_for_review, -> { where("review_date < ?", Time.now).order("RANDOM()").first }
+  scope :card_for_review, -> { where("review_date < ?", Time.now).order("RANDOM()") }
 
   def check_translation(user_translation_text)
-    original_text.mb_chars.downcase.to_s == user_translation_text.mb_chars.downcase.to_s
-  end
-
-  def update_review_date
-    update_column("review_date", 3.days.from_now)
+    if original_text.mb_chars.downcase.to_s == user_translation_text.mb_chars.downcase.to_s
+      update_column("review_date", 3.days.from_now)
+    end
   end
 
   protected
