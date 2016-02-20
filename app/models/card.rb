@@ -15,6 +15,7 @@ class Card < ActiveRecord::Base
   end
 
   protected
+
     def set_review_date
       self.review_date = 3.days.from_now
     end
@@ -25,4 +26,5 @@ class Card < ActiveRecord::Base
 				errors[:translated_text] << "Слова не должны совпадать!"
 			end
 		end
+
 end

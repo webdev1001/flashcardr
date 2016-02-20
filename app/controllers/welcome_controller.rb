@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
 
   def index
     @card = Card.card_for_review.first
-  end
+  end  
 
   def check_translation
     card = Card.find(params[:welcome][:id])
