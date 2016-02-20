@@ -1,7 +1,7 @@
 class Card < ActiveRecord::Base
-	validates :original_text, :translated_text, :review_date, presence: true
-	validate :original_translated_text_not_similar
-	after_validation :set_review_date, on: :create
+  validates :original_text, :translated_text, :review_date, presence: true
+  validate :original_translated_text_not_similar
+  after_validation :set_review_date, on: :create
 
   # scope is using PostgreSQL RANDOM() function for choosing Card.
   # For other DB use ActiveRecord - offset(rand(...))
@@ -16,7 +16,7 @@ class Card < ActiveRecord::Base
     update_column("review_date", 3.days.from_now)
   end
 
-	protected
+  protected
     def set_review_date
       self.review_date = 3.days.from_now
     end
