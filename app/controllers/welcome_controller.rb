@@ -5,7 +5,6 @@ class WelcomeController < ApplicationController
 
   def check_translation
     card = Card.find(params[:welcome][:id])
-    
     if card.check_translation(params[:welcome][:user_translation_text])
       flash[:message] = "Правильный перевод! Переведите следующую карточку"
       card.update_review_date
