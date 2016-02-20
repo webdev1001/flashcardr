@@ -1,0 +1,35 @@
+<% if @card %>
+
+  <section>
+    <table class="table">
+      <tr>
+        <td><b>Текст для перевода</b></td>
+        <td><b>Дата пересмотра</b></td>
+      </tr>
+      <tr>
+        <td><%= @card.translated_text %></td>
+        <td><%= @card.review_date.strftime("%d/%m/%Y") %></td>
+      </tr>
+    </table>
+  </section>
+
+  <br>
+
+	<%= simple_form_for :welcome, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, url: "check_translation" do |f| %>
+  	<div style="text-align:center">
+    	<h3><%= flash.now[:message] %></h3>
+  	</div>
+  	<br>
+    <%= f.input :user_translation_text, label: "Напишите перевод" %>
+    <%= f.hidden_field :id, value: @card.id %>
+    <br>
+    <%= f.button :submit, "Проверить перевод" %>          
+  <% end %>
+
+<% else %>
+	Нет доступных карточек для перевода.<br>
+	Создайте новую карточку.
+<% end %>
+
+
+

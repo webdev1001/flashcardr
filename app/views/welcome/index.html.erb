@@ -4,9 +4,10 @@
       <h1>Welcome!</h1>
         <p style="font-size: 22px;">Первый в мире удобный менеджер флеш-карточек. Именно так.</p>
         <p>
-          <a class="btn btn-lg btn-primary" href="#" role="button">Далее »</a>
+          <%= link_to "Следующая карточка »", root_path, class: "btn btn-lg btn-primary" %>
         </p>
-      </div>
-	</p>
+      </div>    
+		<div class="row">
+	  	<%= render partial: 'cards/card_check_translation_home', layout: 'cards/card_form_label', locals: { title: 'Перевод карточки' } %>
+		</div>
 </section>
-
