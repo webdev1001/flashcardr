@@ -14,7 +14,7 @@ RSpec.describe Card, :type => :model do
     end
 
     it "check for wrong translation" do
-      expect(card.check_translation("Pimp mA ride")).to be false
+      expect(card.check_translation("Pimp mA ride")).to be nil
     end
 
     it "check for spaces in translation" do
