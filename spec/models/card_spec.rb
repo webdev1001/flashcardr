@@ -25,8 +25,8 @@ RSpec.describe Card, type: :model do
   it "do not save/create card with identical
       original and translated text fields" do
     # run validations (.valid?) without saving to DB (.build)
-    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").valid?)
-      .to be false
+    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").
+      valid?).to be false
   end
 
   it "check update review_date when creating card" do
