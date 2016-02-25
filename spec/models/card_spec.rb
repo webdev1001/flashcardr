@@ -25,16 +25,14 @@ RSpec.describe Card, type: :model do
   it "do not save/create card with identical
       original and translated text fields" do
     # run validations (.valid?) without saving to DB (.build)
-    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").valid?).to be false
+    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").valid?)
+      .to be false
   end
 
   it "check update review_date when creating card" do
     card = FactoryGirl.create(:card)
-    original_review_date = card.review_date
-    original_review_date = 3.days.from_now
-
     # Update precision of Time with .to_s (drop milisecond compare)
-    expect(card.review_date.to_s).to eql(original_review_date.to_s)
+    expect(card.review_date.to_s).to eql((Time.now.utc + 3.days).to_s)
   end
 
   it "has a valid factory" do
