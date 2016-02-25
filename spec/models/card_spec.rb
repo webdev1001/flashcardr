@@ -1,8 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Card, type: :model do
   context "#check_translation" do
-
     # (.create) will persist to the db and will call ActiveRecord validations
     let(:card) { FactoryGirl.create(:card) }
 
@@ -25,7 +24,6 @@ RSpec.describe Card, type: :model do
 
   it "do not save/create card with identical
       original and translated text fields" do
-
     # run validations (.valid?) without saving to DB (.build)
     expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").valid?).to be false
   end
@@ -42,5 +40,4 @@ RSpec.describe Card, type: :model do
   it "has a valid factory" do
     expect(FactoryGirl.create(:card)).to be_valid
   end
-
 end
