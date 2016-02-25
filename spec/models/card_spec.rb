@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Card, type: :model do
   context "#check_translation" do
     # (.create) will persist to the db and will call ActiveRecord validations
-    let(:card) { FactoryGirl.create(:card) }
+    let(:card) { create(:card) }
 
     it "check exact correct translation" do
       expect(card.check_translation("Pimp my ride")).to be true
@@ -25,17 +25,16 @@ RSpec.describe Card, type: :model do
   it "do not save/create card with identical
       original and translated text fields" do
     # run validations (.valid?) without saving to DB (.build)
-    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").
-      valid?).to be false
+    expect(build(:card, translated_text: "Pimp my ride").valid?).to be false
   end
 
   it "check update review_date when creating card" do
-    card = FactoryGirl.create(:card)
+    card = create(:card)
     # Update precision of Time with .to_s (drop milisecond compare)
     expect(card.review_date.to_s).to eql((Time.now.utc + 3.days).to_s)
   end
 
   it "has a valid factory" do
-    expect(FactoryGirl.create(:card)).to be_valid
+    expect(create(:card)).to be_valid
   end
 end

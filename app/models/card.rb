@@ -12,8 +12,7 @@ class Card < ActiveRecord::Base
   }
 
   def check_translation(user_translation_text)
-    (original_text.mb_chars.downcase.strip == user_translation_text.
-      mb_chars.downcase.strip)
+    original_text.mb_chars.downcase.strip == user_translation_text.mb_chars.downcase.strip
   end
 
   def set_review_date
@@ -23,8 +22,7 @@ class Card < ActiveRecord::Base
   private
 
   def original_translated_text_not_similar
-    if original_text.mb_chars.downcase.to_s == translated_text.
-       mb_chars.downcase.to_s
+    if original_text.mb_chars.downcase.to_s == translated_text.mb_chars.downcase.to_s
       errors[:translated_text] << "Слова не должны совпадать!"
     end
   end
