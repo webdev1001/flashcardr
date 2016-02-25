@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe Card, :type => :model do
 
   context "#check_translation" do
-    let(:card) { Card.create!(original_text: "Pimp my ride", translated_text: "Прокачай мою тачку") }
+
+    # (.create) will persist to the db and will call ActiveRecord validations 
+    let(:card) { FactoryGirl.create(:card) }
     
     it "check exact correct translation" do
       expect(card.check_translation("Pimp my ride")).to be true
@@ -14,7 +16,7 @@ RSpec.describe Card, :type => :model do
     end
 
     it "check for wrong translation" do
-      expect(card.check_translation("Pimp mA ride")).to be nil
+      expect(card.check_translation("Pimp mA ride")).to be false
     end
 
     it "check for spaces in translation" do
@@ -22,19 +24,24 @@ RSpec.describe Card, :type => :model do
     end
   end
 
-  it "do not save/create card with identical original and translated text fields" do
-    card = Card.new(original_text: "Big", translated_text: "Big")
+  it "do not save/create card with identical 
+      original and translated text fields" do
     
-    expect(card.valid?).to be false
+    # run validations (.valid?) without saving to DB (.build)
+    expect(FactoryGirl.build(:card, translated_text: "Pimp my ride").valid?).to be false
   end
 
   it "check update review_date when creating card" do
-    card = Card.create(original_text: "Big", translated_text: "Большой")
+    card = FactoryGirl.create(:card)
     original_review_date = card.review_date
     original_review_date = 3.days.from_now
    
     # Update precision of Time with .to_s (drop milisecond compare)
     expect(card.review_date.to_s).to eql(original_review_date.to_s)
+  end
+
+  it "has a valid factory" do
+    expect(FactoryGirl.create(:card)).to be_valid
   end
 
 end

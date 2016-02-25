@@ -10,16 +10,12 @@ class Card < ActiveRecord::Base
   scope :card_for_review, -> { where("review_date < ?", Time.now).order("RANDOM()") }
 
   def check_translation(user_translation_text)
-    if (original_text.mb_chars.downcase.strip == user_translation_text.mb_chars.downcase.strip)
-      update_column("review_date", 3.days.from_now)
-    end
+    (original_text.mb_chars.downcase.strip == user_translation_text.mb_chars.downcase.strip)
   end
 
-  protected
-
-    def set_review_date
-      self.review_date = 3.days.from_now
-    end
+  def set_review_date
+    self.review_date = 3.days.from_now
+  end
 
 	private
 		def original_translated_text_not_similar
@@ -27,5 +23,4 @@ class Card < ActiveRecord::Base
 				errors[:translated_text] << "Слова не должны совпадать!"
 			end
 		end
-
 end
