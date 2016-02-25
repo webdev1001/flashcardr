@@ -21,6 +21,7 @@ class Card < ActiveRecord::Base
   end
 
   private
+
   def original_translated_text_not_similar
     if original_text.mb_chars.downcase.to_s == translated_text.
        mb_chars.downcase.to_s
