@@ -20,10 +20,10 @@ class Card < ActiveRecord::Base
     self.review_date = 3.days.from_now
   end
 
-	private
-	def original_translated_text_not_similar
+  private
+  def original_translated_text_not_similar
     if original_text.mb_chars.downcase.to_s == translated_text.
-        mb_chars.downcase.to_s
+       mb_chars.downcase.to_s
       errors[:translated_text] << "Слова не должны совпадать!"
     end
   end
