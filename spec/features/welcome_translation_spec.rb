@@ -22,13 +22,13 @@ feature "Translation Check" do
   def when_i_check_correct_translation_on_welcome_page
     visit root_path
     fill_in "welcome_user_translation_text", with: @card.original_text
-    click_button 'Проверить перевод'
+    click_button "Проверить перевод"
   end
 
   def when_i_check_wrong_translation_on_welcome_page
     visit root_path
     fill_in "welcome_user_translation_text", with: @card.translated_text
-    click_button 'Проверить перевод'
+    click_button "Проверить перевод"
   end
 
   def then_success_message_should_appear
