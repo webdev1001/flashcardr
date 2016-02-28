@@ -1,6 +1,8 @@
 class Card < ActiveRecord::Base
+  belongs_to :user
+
   before_validation :set_review_date, on: :create
-  validates :original_text, :translated_text, :review_date, presence: true
+  validates :original_text, :translated_text, :review_date, :user_id, presence: true
   validate :original_translated_text_not_similar
 
   # scope is using PostgreSQL RANDOM() function for choosing Card.
