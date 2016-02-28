@@ -1,12 +1,14 @@
 # Rails FlashCardR Tool
 
+[![Build Status](https://travis-ci.org/webdev1001/flashcardr.svg?branch=master)](https://travis-ci.org/webdev1001/flashcardr)
+
 * https://github.com/webdev1001/flashcardr
 
 ## DESCRIPTION:
 
-Rails FlashCardR Tool is a monolithic web application that I've created to learn the Rails architecture with the help of a mentor. 
+Rails FlashCardR Tool is a monolithic web application that I've created to learn the Rails architecture with the help of a mentor.
 
-Manager of flash cards is like a piece of paper - on one side word in one language and on the backside - the translation. Popular for learning new languages. Use this cards for iterative (repetitive) learning. Effectivness of that method is proved and widely used. 
+Manager of flash cards is like a piece of paper - on one side word in one language and on the backside - the translation. Popular for learning new languages. Use this cards for iterative (repetitive) learning. Effectivness of that method is proved and widely used.
 
 ## FEATURES:
 
