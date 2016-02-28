@@ -49,7 +49,7 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-group :test do 
+group :test do
   gem 'capybara'
 end
 
