@@ -20,16 +20,16 @@
     	<h3><%= flash.now[:message] %></h3>
   	</div>
   	<br>
-    <%= f.input :user_translation_text, label: "Напишите перевод", input_html: {id: "user_trans2"} %>
+    <%= f.input :user_translation_text, label: "Напишите перевод" %>
     <%= f.hidden_field :id, value: @card.id %>
     <br>
     <%= f.button :submit, "Проверить перевод" %>
   <% end %>
 
 <% else %>
-	Нет доступных карточек для перевода.<br>
-	Создайте новую карточку.
+	<br>Нет доступных карточек для перевода.<br>
+	<%= link_to 'Создайте новую карточку', new_card_path %>.
+  <div style="text-align:center">
+    <h3><%= flash.now[:message] %></h3>
+  </div>
 <% end %>
-
-
-
