@@ -1,7 +1,7 @@
 <%= simple_form_for @card, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
 	<%= f.input :original_text, label: "Оригинальный текст" %>
 	<%= f.input :translated_text, label: "Переведенный текст" %>
-	<%= f.hidden_field :user_id, value: 1 %>
+	<%= f.hidden_field :user_id %>
 	<div style="text-align:center">
 		<%= f.input :review_date, label: "Дата пересмотра" %>
 	</div>

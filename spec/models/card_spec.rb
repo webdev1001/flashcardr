@@ -37,8 +37,4 @@ RSpec.describe Card, type: :model do
   it "has a valid factory" do
     expect(create(:card)).to be_valid
   end
-
-  it "need user_id not o be nil" do
-    expect(build(:card, user_id: nil).valid?).to be false
-  end
 end
