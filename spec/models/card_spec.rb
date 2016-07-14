@@ -33,8 +33,4 @@ RSpec.describe Card, type: :model do
     # Update precision of Time with .to_s (drop milisecond compare)
     expect(card.review_date.to_s).to eql((Time.now.utc + 3.days).to_s)
   end
-
-  it "has a valid factory" do
-    expect(create(:card)).to be_valid
-  end
 end

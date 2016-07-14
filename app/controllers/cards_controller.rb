@@ -17,7 +17,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.create(card_params)
-		
+
     if @card.save
       redirect_to @card
     else
@@ -41,7 +41,7 @@ class CardsController < ApplicationController
   private
 
     def card_init
-      @card = Card.find(params[:id])			
+      @card = Card.find(params[:id])
     end
 
     def card_params
